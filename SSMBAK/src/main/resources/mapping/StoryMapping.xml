@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxspace.ssm.dao.StoryDao">
+
+    <resultMap id="storyResultMap" type="com.cxspace.ssm.model.Story">
+
+        <id property="id" column="id"/>
+
+        <result property="iconsrc" column="iconsrc"/>
+        <result property="title" column="title"/>
+        <result property="create_time" column="create_time"/>
+        <result property="imgsrc" column="imgsrc"/>
+        <result property="content" column="content"/>
+
+    </resultMap>
+
+
+    <delete id="delete" parameterType="com.cxspace.ssm.model.Story">
+
+        DELETE FROM t_story WHERE id = #{id};
+
+    </delete>
+
+    <update id="update" parameterType="com.cxspace.ssm.model.Story">
+
+        UPDATE t_story SET
+
+        iconsrc = #{iconsrc},
+        title = #{title},
+        create_time = #{create_time},
+        imgsrc = #{imgsrc},
+        content = #{content}
+
+        WHERE id = #{id};
+
+
+    </update>
+
+    <insert id="insert" parameterType="com.cxspace.ssm.model.Story">
+
+        INSERT INTO t_story (
+            iconsrc,
+            title,
+            create_time,
+            imgsrc,
+            content
+        )VALUES (
+            #{iconsrc},
+            #{title},
+            #{create_time},
+            #{imgsrc},
+            #{content}
+        );
+
+    </insert>
+
+    <select id="select" resultMap="storyResultMap">
+
+        SELECT * FROM t_story WHERE id = #{id};
+
+    </select>
+
+    <select id="selectAll" resultMap="storyResultMap">
+
+        SELECT * FROM t_story ORDER BY create_time DESC ;
+
+    </select>
+
+</mapper>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxspace.ssm.dao.ShareDao">
+
+    <resultMap id="shareResultMap" type="com.cxspace.ssm.model.Share">
+
+        <id property="id" column="id"/>
+
+        <result property="user_id" column="user_id"/>
+
+        <result property="create_time" column="create_time"/>
+
+        <result property="imgsrc" column="imgsrc"/>
+
+        <result property="content" column="content"/>
+
+        <result property="support" column="support"/>
+
+        <result property="status" column="status"/>
+
+        <result property="comment_count" column="comment_count"/>
+
+    </resultMap>
+
+    <delete id="delete" parameterType="com.cxspace.ssm.model.Share">
+
+        DELETE FROM t_share WHERE id = #{id};
+
+    </delete>
+
+    <insert id="insert" parameterType="com.cxspace.ssm.model.Share">
+
+        INSERT INTO t_share(
+            user_id,
+            create_time,
+            imgsrc,
+            content,
+            support,
+            status,
+            comment_count
+        )VALUES (
+            #{user_id},
+            #{create_time},
+            #{imgsrc},
+            #{content},
+            #{support},
+            #{status},
+            #{comment_count}
+        );
+
+    </insert>
+
+    <select id="select" resultMap="shareResultMap">
+
+        SELECT * FROM t_share WHERE id = #{id};
+
+    </select>
+
+    <select id="selectAll" resultMap="shareResultMap">
+
+        SELECT * FROM t_share WHERE status = 1;
+
+    </select>
+
+    <select id="getAll" resultMap="shareResultMap">
+
+        SELECT * FROM t_share;
+
+    </select>
+
+    <select id="getSharesByKeyWord" parameterType="String" resultMap="shareResultMap">
+
+        SELECT * FROM t_share WHERE content LIKE #{keyword} AND status = 1;
+
+    </select>
+
+    <update id="prohibitShareById" parameterType="String">
+
+        UPDATE t_share SET status = 0 WHERE id = #{id};
+
+    </update>
+
+    <update id="activeShareById" parameterType="String">
+
+        UPDATE t_share SET status = 1 WHERE id  = #{id};
+
+    </update>
+
+    <update id="inc_support">
+
+        UPDATE t_share SET support = support + 1 WHERE id = #{id};
+
+    </update>
+
+
+
+</mapper>

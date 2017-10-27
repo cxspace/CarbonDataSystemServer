@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxspace.ssm.dao.CarbonWeightDao">
+
+    <resultMap id="carbonWeightResultMap" type="com.cxspace.ssm.model.CarbonWeight">
+
+        <id property="id" column="id"></id>
+
+        <result property="weight" column="weight"></result>
+
+        <result property="year_month_id" column="year_month_id"></result>
+
+        <result property="submit_status" column="submit_status"></result>
+
+    </resultMap>
+
+    <resultMap id="carbonVolumResultMap" type="com.cxspace.ssm.model.CarbonVolum">
+
+        <result property="weight" column="weight"></result>
+
+        <result property="month" column="month"></result>
+
+    </resultMap>
+
+    <!--
+         查看每年各个月的碳排量
+    -->
+    <select id="findCarbonVolumByYear" parameterType="Integer" resultMap="carbonVolumResultMap">
+
+        SELECT weight , month FROM t_year_month , t_carbon_weight
+        WHERE t_year_month.id = t_carbon_weight.year_month_id
+        AND t_year_month.year = #{year};
+
+    </select>
+
+
+
+
+    <insert id="save" parameterType="com.cxspace.ssm.model.CarbonWeight">
+
+        INSERT INTO t_carbon_weight (weight, year_month_id, submit_status) VALUES
+        (
+            #{weight},
+            #{year_month_id},
+            #{submit_status}
+        );
+
+    </insert>
+
+    <update id="update" parameterType="com.cxspace.ssm.model.CarbonWeight">
+
+        UPDATE t_carbon_weight SET weight = #{weight} WHERE year_month_id = #{year_month_id};
+
+    </update>
+
+    <select id="deleteAll">
+
+        DELETE FROM t_carbon_weight WHERE 1 = 1;
+
+    </select>
+
+</mapper>

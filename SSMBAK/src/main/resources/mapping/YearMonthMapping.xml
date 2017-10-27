@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxspace.ssm.dao.YearMonthDao">
+
+    <resultMap id="yearMonthResultMap" type="com.cxspace.ssm.model.YearMonth">
+
+        <id property="id" column="id"></id>
+
+        <result property="year" column="year"></result>
+
+        <result property="month" column="month"></result>
+
+    </resultMap>
+
+    <select id="findYearMonthIdByValues" resultMap="yearMonthResultMap" parameterType="com.cxspace.ssm.model.YearMonth">
+
+        SELECT * FROM t_year_month WHERE year = #{year} AND month = #{month};
+
+    </select>
+
+    <!--查已经填报过的年月-->
+    <select id="findYearMonthSelected" resultMap="yearMonthResultMap">
+
+
+
+              SELECT t_year_month.year , t_year_month.month
+
+              FROM t_year_month , t_carbon_weight
+
+              WHERE t_year_month.id = t_carbon_weight.year_month_id
+
+              GROUP BY year , month
+
+            ;
+
+
+    </select>
+
+</mapper>

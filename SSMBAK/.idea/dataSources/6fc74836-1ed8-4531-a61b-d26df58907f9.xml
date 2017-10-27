@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@192.168.1.111">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="classdb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="jol"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="temp"/>
+    <schema id="9" parent="1" name="da_dou_mi_app">
+      <Visible>1</Visible>
+    </schema>
+    <table id="10" parent="2" name="Course"/>
+    <table id="11" parent="2" name="SC"/>
+    <table id="12" parent="2" name="Student"/>
+    <table id="13" parent="2" name="TAB1"/>
+    <table id="14" parent="2" name="sales"/>
+    <table id="15" parent="9" name="t_comment"/>
+    <table id="16" parent="9" name="t_share"/>
+    <table id="17" parent="9" name="t_story"/>
+    <table id="18" parent="9" name="t_user"/>
+    <column id="19" parent="10" name="Cno">
+      <Position>1</Position>
+      <DataType>char(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="10" name="Cname">
+      <Position>2</Position>
+      <DataType>char(40)|0</DataType>
+    </column>
+    <column id="21" parent="10" name="Cpno">
+      <Position>3</Position>
+      <DataType>char(4)|0</DataType>
+    </column>
+    <column id="22" parent="10" name="Ccredit">
+      <Position>4</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <key id="23" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Cno</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="24" parent="11" name="Sno">
+      <Position>1</Position>
+      <DataType>char(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="11" name="Cno">
+      <Position>2</Position>
+      <DataType>char(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="11" name="Grade">
+      <Position>3</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <index id="27" parent="11" name="Cno">
+      <ColNames>Cno</ColNames>
+    </index>
+    <key id="28" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Sno
+Cno</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="11" name="SC_ibfk_1">
+      <ColNames>Sno</ColNames>
+      <RefSchemaName>classdb</RefSchemaName>
+      <RefTableName>Student</RefTableName>
+      <RefColNames>Sno</RefColNames>
+    </foreign-key>
+    <foreign-key id="30" parent="11" name="SC_ibfk_2">
+      <ColNames>Cno</ColNames>
+      <RefSchemaName>classdb</RefSchemaName>
+      <RefTableName>Course</RefTableName>
+      <RefColNames>Cno</RefColNames>
+    </foreign-key>
+    <column id="31" parent="12" name="Sno">
+      <Position>1</Position>
+      <DataType>char(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="12" name="Sname">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+    </column>
+    <column id="33" parent="12" name="Ssex">
+      <Position>3</Position>
+      <DataType>char(2)|0</DataType>
+    </column>
+    <column id="34" parent="12" name="Sage">
+      <Position>4</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <column id="35" parent="12" name="Sdept">
+      <Position>5</Position>
+      <DataType>char(20)|0</DataType>
+    </column>
+    <index id="36" parent="12" name="Sname">
+      <ColNames>Sname</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Sno</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="38" parent="12" name="Sname">
+      <ColNames>Sname</ColNames>
+      <UnderlyingIndexName>Sname</UnderlyingIndexName>
+    </key>
+    <column id="39" parent="13" name="COL1">
+      <Position>1</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <column id="40" parent="13" name="COL2">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="41" parent="13" name="COL3">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+    </column>
+    <column id="42" parent="13" name="COL4">
+      <Position>4</Position>
+      <DataType>decimal(10,3)|0</DataType>
+    </column>
+    <column id="43" parent="13" name="COL5">
+      <Position>5</Position>
+      <DataType>decimal(5,2)|0</DataType>
+    </column>
+    <column id="44" parent="14" name="product_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="14" name="region_code">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="14" name="quantity">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="47" parent="14" name="price">
+      <Position>4</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <key id="48" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>product_id
+region_code</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="15" name="share_id">
+      <Position>2</Position>
+      <Comment>对应的分享的id</Comment>
+      <DataType>varchar(36)|0</DataType>
+    </column>
+    <column id="51" parent="15" name="user_id">
+      <Position>3</Position>
+      <Comment>发布评论用户的id</Comment>
+      <DataType>varchar(36)|0</DataType>
+    </column>
+    <column id="52" parent="15" name="create_time">
+      <Position>4</Position>
+      <Comment>发布评论的时间</Comment>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="53" parent="15" name="status">
+      <Position>5</Position>
+      <Comment>评论信息状态</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="54" parent="15" name="content">
+      <Position>6</Position>
+      <Comment>评论内容</Comment>
+      <DataType>longtext|0</DataType>
+    </column>
+    <key id="55" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="16" name="user_id">
+      <Position>2</Position>
+      <Comment>发布分享用户id</Comment>
+      <DataType>varchar(36)|0</DataType>
+    </column>
+    <column id="58" parent="16" name="create_time">
+      <Position>3</Position>
+      <Comment>发布的时间</Comment>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="59" parent="16" name="imgsrc">
+      <Position>4</Position>
+      <Comment>分享的图片</Comment>
+      <DataType>varchar(80)|0</DataType>
+    </column>
+    <column id="60" parent="16" name="content">
+      <Position>5</Position>
+      <Comment>分享的文字</Comment>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="61" parent="16" name="support">
+      <Position>6</Position>
+      <Comment>点赞次数</Comment>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="62" parent="16" name="status">
+      <Position>7</Position>
+      <Comment>分享信息状态</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="63" parent="16" name="comment_count">
+      <Position>8</Position>
+      <Comment>评论条数</Comment>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <key id="64" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="17" name="iconsrc">
+      <Position>2</Position>
+      <Comment>icon图片的地址</Comment>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="67" parent="17" name="title">
+      <Position>3</Position>
+      <Comment>故事标题</Comment>
+      <DataType>varchar(300)|0</DataType>
+    </column>
+    <column id="68" parent="17" name="create_time">
+      <Position>4</Position>
+      <Comment>创建时间</Comment>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="69" parent="17" name="imgsrc">
+      <Position>5</Position>
+      <Comment>标题页图片</Comment>
+      <DataType>varchar(80)|0</DataType>
+    </column>
+    <column id="70" parent="17" name="content">
+      <Position>6</Position>
+      <Comment>故事内容</Comment>
+      <DataType>longtext|0</DataType>
+    </column>
+    <key id="71" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="72" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="73" parent="18" name="name">
+      <Position>2</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="74" parent="18" name="phone">
+      <Position>3</Position>
+      <Comment>手机号</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="75" parent="18" name="email">
+      <Position>4</Position>
+      <Comment>邮箱</Comment>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="76" parent="18" name="status">
+      <Position>5</Position>
+      <Comment>用户状态</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="77" parent="18" name="password">
+      <Position>6</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="78" parent="18" name="imgsrc">
+      <Position>7</Position>
+      <Comment>头像链接</Comment>
+      <DataType>varchar(80)|0</DataType>
+    </column>
+    <key id="79" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

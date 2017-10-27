@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxspace.ssm.dao.CommentDao">
+
+    <resultMap id="commentResultMap" type="com.cxspace.ssm.model.Comment">
+
+        <id property="id" column="id"/>
+
+        <result property="share_id" column="share_id"/>
+        <result property="user_id" column="user_id"/>
+        <result property="create_time" column="create_time"/>
+        <result property="status" column="status"/>
+        <result property="content" column="content"/>
+
+    </resultMap>
+
+
+    <insert id="insert" parameterType="com.cxspace.ssm.model.Comment">
+
+        INSERT INTO t_comment(
+        share_id,
+        user_id,
+        create_time,
+        status,
+        content
+        )VALUES (
+        #{share_id},
+        #{user_id},
+        #{create_time},
+        #{status},
+        #{content}
+        );
+
+    </insert>
+
+    <select id="select" resultMap="commentResultMap">
+
+        SELECT * FROM t_comment WHERE id = #{id};
+
+    </select>
+
+    <select id="selectAll" resultMap="commentResultMap">
+
+        SELECT * FROM t_comment;
+
+    </select>
+
+    <select id="selectCommentsByShareId" parameterType="String" resultMap="commentResultMap">
+
+        SELECT * FROM t_comment WHERE share_id = #{share_id};
+
+    </select>
+
+    <select id="selectCommentsCountByShareId" parameterType="String" resultType="Integer">
+
+        SELECT COUNT(1) FROM t_comment WHERE share_id = #{id};
+
+    </select>
+
+
+</mapper>

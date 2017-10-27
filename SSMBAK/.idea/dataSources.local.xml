@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="da_dou_mi_app@localhost" uuid="fc1ce598-7bf1-4d2a-bb07-9a0e4e8b9474">
+      <database-info product="MySQL" version="5.7.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:da_dou_mi_app</introspection-schemas>
+      <resolve-scope>da_dou_mi_app:</resolve-scope>
+      <unqualified-resolve-schemas>da_dou_mi_app:</unqualified-resolve-schemas>
+    </data-source>
+    <data-source name="da_dou_mi_app@192.168.1.111" uuid="dd45494c-b261-41c0-aa9e-175d89b847f1">
+      <database-info product="MySQL" version="5.7.20-0ubuntu0.16.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:da_dou_mi_app</introspection-schemas>
+    </data-source>
+    <data-source name="@127.0.0.1" uuid="1a0ca09f-9e3e-464d-9b92-b6095d5e675f">
+      <database-info product="MySQL" version="5.7.17-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:da_dou_mi_app,information_schema</introspection-schemas>
+    </data-source>
+  </component>
+</project>

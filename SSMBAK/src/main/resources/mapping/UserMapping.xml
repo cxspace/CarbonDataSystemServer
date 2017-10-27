@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxspace.ssm.dao.UserDao">
+
+    <resultMap id="userResultMap" type="com.cxspace.ssm.model.User">
+
+        <id property="id" column="id"></id>
+
+        <result property="name" column="name"/>
+
+        <result property="phone" column="phone"/>
+
+        <result property="email" column="email"/>
+
+        <result property="status" column="status"/>
+
+        <result property="password" column="password"/>
+
+        <result property="imgsrc" column="imgsrc"/>
+
+    </resultMap>
+
+    <update id="prohibitUserById" parameterType="String">
+
+        UPDATE t_user SET status = 0 WHERE id = #{id};
+
+    </update>
+
+    <update id="activeUserById" parameterType="String">
+
+        UPDATE t_user SET status = 1 WHERE id = #{id};
+
+    </update>
+
+    <select id="select" resultMap="userResultMap">
+
+        SELECT * FROM t_user WHERE id = #{id};
+
+    </select>
+
+    <select id="selectAll" resultMap="userResultMap">
+
+        SELECT * FROM t_user;
+
+    </select>
+
+    <insert id="save" parameterType="com.cxspace.ssm.model.User">
+
+        INSERT INTO t_user (name,phone,email,status,password,imgsrc)
+        VALUES (
+            #{name},#{phone},#{email},#{status},#{password},#{imgsrc}
+        );
+
+    </insert>
+
+    <select id="findUserByUserPhone" parameterType="String" resultMap="userResultMap">
+
+        SELECT * FROM t_user WHERE phone = #{phone};
+
+    </select>
+
+    <select id="findUserByUserPhoneAndPassword" resultMap="userResultMap">
+
+        SELECT * FROM t_user WHERE phone = #{phone} AND password = #{password} AND status = 1;
+
+    </select>
+
+    <update id="updateUserEmailByIdAndEmail">
+
+        UPDATE t_user SET email = #{email} WHERE id = #{id};
+
+    </update>
+
+    <update id="updateUserPasswordByIdAndPassword">
+
+        UPDATE t_user SET password = #{password} WHERE id = #{id};
+
+    </update>
+
+    <update id="updateUserImgsrcByUserIdAndImgsrc">
+
+        UPDATE t_user SET imgsrc = #{imgsrc} WHERE id = #{id};
+
+    </update>
+
+    <update id="updateUserNameByUserIdAndName">
+
+        UPDATE t_user SET name = #{name} WHERE id = #{id};
+
+    </update>
+
+</mapper>
